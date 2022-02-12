@@ -51,7 +51,7 @@ export default function Tablecnae() {
           columns={columns}
           pageSize={13}
           rowsPerPageOptions={[10]}
-          checkboxSelection
+          // checkboxSelection
         />
       </div>
     </>
