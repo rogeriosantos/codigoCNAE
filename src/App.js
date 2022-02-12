@@ -3,7 +3,7 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 export default function App() {
-  const [search, setSearch] = useState('');
+  // const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
 
   // const handleSearch = (e) => {
