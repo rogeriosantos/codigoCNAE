@@ -26,6 +26,14 @@ export default function Tablecnae() {
       description: item.descricao,
     };
   });
+
+  const filteredRows = rows.filter((row) => {
+    return (
+      row.description.toLowerCase().includes(search.toLowerCase()) ||
+      row.id.toLowerCase().includes(search.toLowerCase())
+    );
+  });
+
   return (
     <>
       <div style={{ marginTop: 10, marginBottom: 10 }}>
@@ -39,9 +47,9 @@ export default function Tablecnae() {
       </div>
       <div style={{ height: 800, width: '100%' }}>
         <DataGrid
-          rows={rows}
+          rows={filteredRows}
           columns={columns}
-          pageSize={10}
+          pageSize={13}
           rowsPerPageOptions={[10]}
           checkboxSelection
         />
