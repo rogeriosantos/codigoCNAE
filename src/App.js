@@ -6,15 +6,15 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-    console.log(search);
-  };
+  // const handleSearch = (e) => {
+  //   setSearch(e.target.value);
+  //   console.log(search);
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setResults(search);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setResults(search);
+  // };
 
   const getData = () => {
     return fetch('https://servicodados.ibge.gov.br/api/v2/cnae/classes/')
@@ -34,18 +34,6 @@ export default function App() {
     { field: 'id', headerName: 'ID', width: 70 },
     { field: 'description', headerName: 'Descrição', width: 700 },
   ];
-
-  // const rows = [
-  //   { id: 1, description: 'Snow', firstName: 'Jon', age: 35 },
-  //   { id: 2, description: 'Lannister', firstName: 'Cersei', age: 42 },
-  //   { id: 3, description: 'Lannister', firstName: 'Jaime', age: 45 },
-  //   { id: 4, description: 'Stark', firstName: 'Arya', age: 16 },
-  //   { id: 5, description: 'Targaryen', firstName: 'Daenerys', age: null },
-  //   { id: 6, description: 'Melisandre', firstName: null, age: 150 },
-  //   { id: 7, description: 'Clifford', firstName: 'Ferrara', age: 44 },
-  //   { id: 8, description: 'Frances', firstName: 'Rossini', age: 36 },
-  //   { id: 9, description: 'Roxie', firstName: 'Harvey', age: 65 },
-  // ];
 
   const rows = results.map((item) => {
     return {
