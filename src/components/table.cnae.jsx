@@ -6,7 +6,6 @@ import { DataGrid } from '@mui/x-data-grid';
 import TextField from '@mui/material/TextField';
 
 export default function Tablecnae() {
-  // const [results, setResults] = useState([]);
   const results = useCnae();
   const [search, setSearch] = useState('');
 
@@ -38,6 +37,7 @@ export default function Tablecnae() {
     <>
       <div style={{ marginTop: 10, marginBottom: 10 }}>
         <TextField
+          fullWidth
           id='outlined-basic'
           label='Search'
           variant='outlined'
