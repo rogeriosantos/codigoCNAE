@@ -1,0 +1,51 @@
+import { useState, useEffect } from 'react';
+
+import useCnae from '../hooks/useCnae';
+import { DataGrid } from '@mui/x-data-grid';
+
+import TextField from '@mui/material/TextField';
+
+export default function Tablecnae() {
+  // const [results, setResults] = useState([]);
+  const results = useCnae();
+  const [search, setSearch] = useState('');
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    console.log(search);
+  };
+
+  const columns = [
+    { field: 'id', headerName: 'ID', width: 70 },
+    { field: 'description', headerName: 'Descrição', width: 700 },
+  ];
+
+  const rows = results.map((item) => {
+    return {
+      id: item.id,
+      description: item.descricao,
+    };
+  });
+  return (
+    <>
+      <div style={{ marginTop: 10, marginBottom: 10 }}>
+        <TextField
+          id='outlined-basic'
+          label='Search'
+          variant='outlined'
+          placeholder={search}
+          onChange={handleSearch}
+        />
+      </div>
+      <div style={{ height: 800, width: '100%' }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={10}
+          rowsPerPageOptions={[10]}
+          checkboxSelection
+        />
+      </div>
+    </>
+  );
+}
